@@ -1,5 +1,5 @@
 import Avatar from "./Avatar";
-import { ViewGridIcon } from '@heroicons/react/solid';
+import { ViewGridIcon } from "@heroicons/react/solid";
 
 const Header: React.FC = () => {
   return (
@@ -12,12 +12,12 @@ const Header: React.FC = () => {
         <a className='link'>Gmail</a>
         <a className='link'>Images</a>
         {/*  Icon */}
-        <ViewGridIcon className="h-10 w-10 p-2 rounded-full hover:bg-gray-100 cursor-pointer" />
+        <ViewGridIcon className='h-10 w-10 p-2 rounded-full hover:bg-gray-100 cursor-pointer' />
 
-        <Avatar url={'http://coaching.papareact.com/ai9'} />
+        <Avatar url={"http://coaching.papareact.com/ai9"} />
       </div>
     </header>
-  )
-}
+  );
+};
 
 export default Header;
