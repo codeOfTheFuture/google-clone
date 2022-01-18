@@ -1,7 +1,10 @@
 import Avatar from "./Avatar";
 import { ViewGridIcon } from "@heroicons/react/solid";
+import { useAuth } from "../context/AuthContext";
 
 const Header: React.FC = () => {
+  const { user, signInWithGoogle, logOut } = useAuth();
+
   return (
     <header className='flex w-full p-5 justify-between text-sm text-gray-700'>
       <div className='flex space-x-4 items-center'>
@@ -14,7 +17,11 @@ const Header: React.FC = () => {
         {/*  Icon */}
         <ViewGridIcon className='h-10 w-10 p-2 rounded-full hover:bg-gray-100 cursor-pointer' />
 
-        <Avatar url={"http://coaching.papareact.com/ai9"} />
+        {!user?.photoURL ? (
+          <a className='link' onClick={() => signInWithGoogle()}>Sign In</a>
+        ) : (
+          <Avatar url={user.photoURL} logOut={logOut} />
+        )}
       </div>
     </header>
   );
