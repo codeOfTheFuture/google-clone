@@ -5,8 +5,9 @@ import { useRef } from "react";
 import { useAuth } from "../context/AuthContext";
 import search from "../helpers/search";
 import Avatar from "./Avatar";
+import SearchHeaderOptions from "./SearchHeaderOptions";
 
-const SearchPageHeader = () => {
+const SearchPageHeader: React.FC = () => {
   const router = useRouter(),
     searchInputRef = useRef<HTMLInputElement>(null),
     { user, logOut } = useAuth();
@@ -43,6 +44,7 @@ const SearchPageHeader = () => {
           <Avatar url={user.photoURL!} className='ml-auto' logOut={logOut} />
         )}
       </div>
+      <SearchHeaderOptions />
     </header>
   );
 };
