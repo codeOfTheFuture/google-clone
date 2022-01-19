@@ -5,13 +5,15 @@ import {
   signOut,
   User,
 } from "firebase/auth";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { auth } from "../firebase.setup";
 
 export const AuthProvider: React.FC = ({ children }) => {
-  const [user, setUser] = useState<User | null>(null);
-  const [loading, setLoading] = useState<boolean>(false);
+  const [user, setUser] = useState<User | null>(null),
+    [loading, setLoading] = useState<boolean>(false),
+    router = useRouter();
 
   useEffect(
     () =>
@@ -31,6 +33,7 @@ export const AuthProvider: React.FC = ({ children }) => {
     try {
       setLoading(true);
       await signInWithRedirect(auth, provider);
+      router.push('/');
     } catch (error) {
       console.error(error);
     }
@@ -49,6 +52,7 @@ export const AuthProvider: React.FC = ({ children }) => {
   console.log(user);
   const value = {
     user,
+    loading,
     signInWithGoogle,
     logOut,
   };
