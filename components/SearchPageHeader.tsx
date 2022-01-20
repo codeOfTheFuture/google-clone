@@ -7,7 +7,11 @@ import search from "../helpers/search";
 import Avatar from "./Avatar";
 import SearchHeaderOptions from "./SearchHeaderOptions";
 
-const SearchPageHeader: React.FC = () => {
+interface SearchPageHeaderProps {
+  term: string | string[] | undefined;
+}
+
+const SearchPageHeader: React.FC<SearchPageHeaderProps> = ({ term }) => {
   const router = useRouter(),
     searchInputRef = useRef<HTMLInputElement>(null),
     { user, logOut } = useAuth();
@@ -32,6 +36,7 @@ const SearchPageHeader: React.FC = () => {
             ref={searchInputRef}
             className='flex-grow w-full focus:outline-none'
             type='text'
+            defaultValue={term}
           />
           <XIcon
             className='h-7 sm:mr-3 text-gray-500 cursor-pointer transition duration-100 transform hover:scale-125'

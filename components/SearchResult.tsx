@@ -10,7 +10,7 @@ const SearchResult: React.FC<SearchResultProps> = ({ result }) => {
   return (
     <div className='max-w-xl mb-8'>
       <div className='group'>
-        <a href={link} className='text-sm'>
+        <a href={link} className='text-sm truncate max-w-sm'>
           {formattedUrl}
         </a>
         <a href={link}>

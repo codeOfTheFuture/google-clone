@@ -1,3 +1,4 @@
+import PaginationButtons from "./PaginationButtons";
 import SearchResult from "./SearchResult";
 
 interface SearchResultsProps {
@@ -10,7 +11,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({ results }) => {
   } = results;
 
   return (
-    <div className='mx-auto w-full px-3 sm:pl-[5%] md:pl-[14%] lg:pl-52'>
+    <div className='mx-auto w-full mt-3 px-3 sm:pl-[5%] md:pl-[14%] lg:pl-52'>
       <p className='text-gray-600 mb-5'>
         About {formattedTotalResults} results ({formattedSearchTime} seconds)
       </p>
@@ -18,6 +19,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({ results }) => {
       {results.items?.map((result: any) => (
         <SearchResult result={result} key={result.link} />
       ))}
+      <PaginationButtons />
     </div>
   );
 };
