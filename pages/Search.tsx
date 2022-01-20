@@ -4,6 +4,7 @@ import SearchPageHeader from "../components/SearchPageHeader";
 
 import Response from '../Response.js';
 import { useRouter } from "next/router";
+import SearchResults from "../components/SearchResults";
 
 interface SearchProps {
   results: GetServerSideProps
@@ -23,7 +24,7 @@ const Search: NextPage<SearchProps> = ({ results }) => {
 
       <SearchPageHeader />
 
-      {/* <SearchResults /> */}
+      <SearchResults results={results} />
     </div>
   );
 };
