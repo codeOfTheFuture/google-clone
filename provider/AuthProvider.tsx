@@ -33,7 +33,7 @@ export const AuthProvider: React.FC = ({ children }) => {
     try {
       setLoading(true);
       await signInWithRedirect(auth, provider);
-      router.push('/');
+      router.push("/");
     } catch (error) {
       console.error(error);
     }
@@ -49,7 +49,7 @@ export const AuthProvider: React.FC = ({ children }) => {
       console.error(error);
     }
   };
-  console.log(user);
+
   const value = {
     user,
     loading,
