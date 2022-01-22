@@ -17,7 +17,7 @@ const SearchForm: React.FC<SearchFormProps> = ({ search }) => {
     router = useRouter();
 
   return (
-    <form className='flex flex-col items-center mt-44 flex-grow w-4/5'>
+    <form className='flex flex-col items-center mt-44 flex-grow w-4/5' onSubmit={(e) => search(e, searchInputRef, router)}>
       <Image
         src='/images/google-logo.png'
         height={100}
@@ -37,13 +37,13 @@ const SearchForm: React.FC<SearchFormProps> = ({ search }) => {
 
       <div className='flex flex-col w-1/2 space-y-2 justify-center mt-8 sm:space-y-0 sm:flex-row sm:space-x-4'>
         <button
-          onClick={(e) => search(e, searchInputRef, router)}
+          type="submit"
           className='btn'
         >
           Google Search
         </button>
         <button
-          onClick={(e) => search(e, searchInputRef, router)}
+          type="submit"
           className='btn'
         >
           I&apos;m Feeling Lucky

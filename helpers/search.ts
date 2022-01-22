@@ -11,6 +11,7 @@ const search: SearchFunc = (e, searchInputRef, router) => {
   e.preventDefault();
 
   const term = searchInputRef.current?.value;
+  console.log(term);
 
   if (!term) return;
 
