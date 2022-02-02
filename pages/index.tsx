@@ -5,9 +5,7 @@ import Header from "../components/Header";
 import SearchForm from "../components/SearchForm";
 import search from "../helpers/search";
 
-
 const Home: NextPage = () => {
-
   return (
     <div className='flex flex-col items-center justify-center h-screen'>
       <Head>

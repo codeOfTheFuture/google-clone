@@ -10,7 +10,7 @@ const PaginationButtons = () => {
     startIndex = Number(router.query.start) || 0;
 
   return (
-    <div className='flex max-w-lg justify-between text-blue-700 mb-10'>
+    <div className='flex w-full md:max-w-lg items-center justify-between text-blue-700 mb-10'>
       <Link
         href={`/search?term=${router.query.term}&start=${startIndex - 10}`}
         passHref

@@ -10,7 +10,7 @@ const SearchResult: React.FC<SearchResultProps> = ({ result }) => {
   return (
     <div className='max-w-xl mb-8'>
       <div className='group'>
-        <a href={link} className='text-sm truncate max-w-sm'>
+        <a href={link} className='text-sm max-w-xs'>
           {formattedUrl}
         </a>
         <a href={link}>
@@ -21,7 +21,7 @@ const SearchResult: React.FC<SearchResultProps> = ({ result }) => {
       </div>
       <p className='line-clamp-2'>{snippet}</p>
     </div>
-  )
-}
+  );
+};
 
 export default SearchResult;

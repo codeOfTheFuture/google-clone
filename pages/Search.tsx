@@ -6,14 +6,13 @@ import { useRouter } from "next/router";
 import SearchResults from "../components/SearchResults";
 
 interface SearchProps {
-  results: GetServerSideProps
+  results: GetServerSideProps;
 }
 
 const Search: NextPage<SearchProps> = ({ results }) => {
   const router = useRouter(),
-    { } = results
+    { } = results;
 
-  console.log(results)
   return (
     <div>
       <Head>
@@ -31,17 +30,15 @@ const Search: NextPage<SearchProps> = ({ results }) => {
 export default Search;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const startIndex = context.query.start || '0';
+  const startIndex = context.query.start || "0";
 
   const data = await fetch(
     `https://www.googleapis.com/customsearch/v1?key=${process.env.NEXT_PUBLIC_GOOGLE_API_KEY}&cx=${process.env.NEXT_PUBLIC_CONTEXT_KEY}&q=${context.query.term}&start=${startIndex}`
   ).then((response) => response.json());
 
-
-  console.log("data>>>>>", data)
   return {
     props: {
-      results: data
-    }
-  }
-}
+      results: data,
+    },
+  };
+};

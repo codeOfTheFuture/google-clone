@@ -17,8 +17,10 @@ const Header: React.FC = () => {
         {/*  Icon */}
         <ViewGridIcon className='h-10 w-10 p-2 rounded-full hover:bg-gray-100 cursor-pointer' />
 
-        {(!user?.photoURL) ? (
-          <a className='link' onClick={() => signInWithGoogle()}>Sign In</a>
+        {!user?.photoURL ? (
+          <a className='link' onClick={() => signInWithGoogle()}>
+            Sign In
+          </a>
         ) : (
           <Avatar url={user.photoURL} logOut={logOut} />
         )}
